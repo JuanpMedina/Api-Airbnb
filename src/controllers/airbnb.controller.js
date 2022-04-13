@@ -1,6 +1,6 @@
 
 // Importar los servicio
-const { consultarDocumentos, TipoDocumentos, ReviewsDocumentos } = require('../services/mongodb.service');
+const { consultarDocumentos, TipoDocumentos, ReviewsDocumentos, DocumentosporCamas} = require('../services/mongodb.service');
 
 /**
  * 
@@ -71,5 +71,30 @@ const consultarAirbnb = async (req, res) => {
     }
 }
 
+/**
+ * 
+ * @param {Request} req 
+ * @param {Response} res 
+ */
+ const CamasAirbnb = async (req, res) => {
+    let respuesta = {}
+    try {
+        // Limite de registros que pide el usuario para la consulta
+        let limite = req.params.nro_beds
+        respuesta.ok = true
+        respuesta.message = "Airbnbs con más camas disponibles consultados exitosamente"
+        // Se consultan los airbnb con más camas disponibles de la base de datos
+        let resultado = await DocumentosporCamas(process.env.COLLECTION_AIRBNB, limite)
+        respuesta.info = resultado
+        res.send(respuesta)
+    } catch (error) {
+        console.log(error);
+        respuesta.ok = false
+        respuesta.message = "Ha ocurrido un error consultando los airbnbs"
+        respuesta.info = error
+        res.status(500).send(respuesta)
+    }
+}
 
-module.exports = {consultarAirbnb,TiposAirbnb,ReviewsAirbnb}
+
+module.exports = {consultarAirbnb,TiposAirbnb,ReviewsAirbnb,CamasAirbnb}

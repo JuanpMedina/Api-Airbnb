@@ -34,4 +34,12 @@ const ReviewsDocumentos = async (nombreColeccion) => {
   return coleccion.find().sort(sort).project(projection).limit(parseInt(process.env.DEFAULT_LIMIT_REVIEWS)).toArray()
 }
 
-module.exports = { consultarDocumentos,TipoDocumentos,ReviewsDocumentos }
+const DocumentosporCamas = async (nombreColeccion, limite) => {
+  let db = await conectarDB()
+  let sort = { beds: -1 }
+  let projection = { _id: 0, name: 1, beds: 1, number_of_reviews: 1, price: 1 }
+  let coleccion = db.collection(nombreColeccion)
+  return coleccion.find().sort(sort).project(projection).limit(parseInt(limite)).toArray()
+}
+
+module.exports = { consultarDocumentos,TipoDocumentos,ReviewsDocumentos,DocumentosporCamas }
