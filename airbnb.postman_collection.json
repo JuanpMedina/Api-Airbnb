@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "2a941477-4c9a-434c-b426-592159a516bd",
+		"name": "airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "consultarDocumentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/airbnb/all-properties",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"airbnb",
+						"all-properties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TipoDocumentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/airbnb/types",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"airbnb",
+						"types"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReviewsDocumentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/airbnb/reviews",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"airbnb",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DocumentosporCamas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/airbnb/beds/:nro_beds",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"airbnb",
+						"beds",
+						":nro_beds"
+					],
+					"variable": [
+						{
+							"key": "nro_beds",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
