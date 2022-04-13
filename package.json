@@ -1,5 +1,5 @@
 {
-  "name": "restaurante-api",
+  "name": "Api-Airbnb",
   "version": "1.0.0",
   "description": "Proyecto restaurante API",
   "main": "index.js",
@@ -7,11 +7,11 @@
     "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Juan Pablo Medina Diaz",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.3",
-    "mongodb": "^4.4.1"
+    "mongodb": "^4.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
